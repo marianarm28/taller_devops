@@ -24,4 +24,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ secrets.DOCKER_USERNAME }}/devops-workshop-app:latest
+          tags: ghcr.io/${{ secrets.DOCKER_USERNAME }}/taller_devops:latest
