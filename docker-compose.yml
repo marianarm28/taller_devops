@@ -4,7 +4,7 @@ services:
   # Python Application Service
   app:
     # Replace <YOUR_GITHUB_USERNAME> with your actual username
-    image: ghcr.io/LuisVelez28/devops-workshop-app:latest
+    image: ghcr.io/marianarm28/devops-workshop-app:latest
     container_name: python-app
     ports:
       - "8000:8000"
