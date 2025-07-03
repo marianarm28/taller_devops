@@ -1,7 +1,14 @@
-name: Deploy Application to EC2
+# .github/workflows/deploy-monitoring.yml
+
+name: Deploy Monitoring Stack to EC2
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'monitoring/**'
+      - 'docker-compose.yml'
 
 jobs:
   deploy:
@@ -14,8 +21,6 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd ~/taller_devops # Replace with your repo folder on EC2
+            cd ~/taller_devops
             git pull
-            docker login ghcr.io -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.GH_PAT }}
-            docker-compose pull app
-            docker-compose up -d app
+            docker-compose up -d prometheus grafana
