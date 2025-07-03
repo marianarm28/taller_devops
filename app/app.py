@@ -14,5 +14,5 @@ def hello():
 def metrics():
     return generate_latest()
 
-if _name_ == "____main__":
+if __name__ == "____main__":
     app.run(host="0.0.0.0", port=8000)
