@@ -3,7 +3,7 @@ from flask import Flask
 from prometheus_client import Counter, generate_latest
 
 app = Flask(__name__)
-visits Counter ('webapp_visits_total', 'Total visits to the homepage')
+visits = Counter('webapp_visits_total', 'Total visits to the homepage')
 
 @app.route("/")
 def hello():
