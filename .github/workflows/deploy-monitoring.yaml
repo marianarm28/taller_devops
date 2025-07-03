@@ -3,12 +3,13 @@
 name: Deploy Monitoring Stack to EC2
 
 on:
-  push:
+  workflow_run:
+    # 1. Nombre del pipeline que debe terminar para que este se ejecute
+    workflows: ["Deploy Application to EC2"]
+    types:
+      - completed
     branches:
       - main
-    paths:
-      - 'monitoring/**'
-      - 'docker-compose.yml'
 
 jobs:
   deploy:
